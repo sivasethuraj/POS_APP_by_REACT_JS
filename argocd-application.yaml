@@ -1,0 +1,15 @@
+project: default
+source:
+  repoURL: https://github.com/sivasethuraj/POS_APP_by_REACT_JS.git
+  path: k8s
+  targetRevision: HEAD
+destination:
+  server: https://kubernetes.default.svc
+  namespace: react
+syncPolicy:
+  automated:
+    prune: true
+    selfHeal: true
+    enabled: true
+  syncOptions:
+    - CreateNamespace=true
