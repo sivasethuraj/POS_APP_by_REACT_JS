@@ -48,25 +48,32 @@ on root level, run the command
   > ![main menu](</images/Screenshot%20(54).png>)
 
 - **Billing**
+
   > ![main menu](</images/Screenshot%20(55).png>)
 
-> ![main menu](</images/Screenshot%20(56).png>)
+  > ![main menu](</images/Screenshot%20(56).png>)
 
-> ![main menu](</images/Screenshot%20(57).png>)
+  > ![main menu](</images/Screenshot%20(57).png>)
 
-> ![main menu](</images/Screenshot%20(58).png>)
+  > ![main menu](</images/Screenshot%20(58).png>)
 
 - **Inventory**
 
-> ![main menu](</images/Screenshot%20(59).png>)
+  > ![main menu](</images/Screenshot%20(59).png>)
 
-> ![main menu](</images/Screenshot%20(60).png>)
+  > ![main menu](</images/Screenshot%20(60).png>)
 
 - **Item Request**
 
   > ![main menu](</images/Screenshot%20(61).png>)
 
 - **Sales Report**
+
   > ![main menu](</images/Screenshot%20(62).png>)
+
+## Screenshot of ArgoCD application gitops website
+
+- **ArgoCD**
+  > ![main menu](</images/Screenshot 2026-01-27 085316.png>) > ![main menu](</images/Screenshot 2026-01-27 124349.png>) > ![main menu](</images/Screenshot 2026-01-27 124900.png>) > ![main menu](</images/Screenshot 2026-01-27 124931.png>)
 
 This web site is developed by [Siva Sethuraj](https://github.com/sivasethuraj) .
