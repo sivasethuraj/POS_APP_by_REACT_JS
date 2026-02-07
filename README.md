@@ -1,4 +1,10 @@
-# POS APP by React
+# **POS APP** by _React_
+> SECTIONS :
+- [About](#about)
+- [Docker](#docker)
+- [website screenshots](#screenshot-of-website)
+- [ArgoCD](#screenshot-of-argocd-application-gitops-website)
+- [Monitoring](#monitoring)
 
 ## About :
 
@@ -76,7 +82,6 @@ on root level, run the command
 - **ArgoCD**
   > ![main menu](</images/Screenshot 2026-01-27 085316.png>) > ![main menu](</images/Screenshot 2026-01-27 124349.png>) > ![main menu](</images/Screenshot 2026-01-27 124900.png>) > ![main menu](</images/Screenshot 2026-01-27 124931.png>)
 
-This web site is developed by [Siva Sethuraj](https://github.com/sivasethuraj) .
 ---
 # **Monitoring**
 ## Prometheus
@@ -150,3 +155,6 @@ echo "All Done..."
 > ![grafana dashboards](</images/grafana/screenshot-1770450840213.png>)
 
 > ![grafana dashboards](</images/grafana/Screenshot_7-2-2026_132255_a2e870ab7f40-10-244-4-37-3000.papa.r.killercoda.com.jpeg>)
+
+
+This web site is developed by [Siva Sethuraj](https://github.com/sivasethuraj)
