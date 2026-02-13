@@ -6,7 +6,7 @@ spec:
   selector:
     matchLabels:
       app: pos-app
-  replicas: 2 # Update the replicas from 2 to 4
+  replicas: 2 
   template:
     metadata:
       labels:
