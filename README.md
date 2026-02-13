@@ -157,4 +157,4 @@ echo "All Done..."
 > ![grafana dashboards](</images/grafana/Screenshot_7-2-2026_132255_a2e870ab7f40-10-244-4-37-3000.papa.r.killercoda.com.jpeg>)
 
 
-This web site is developed by [Siva Sethuraj](https://github.com/sivasethuraj)
+This repository is developed by [Siva Sethuraj](https://github.com/sivasethuraj)
