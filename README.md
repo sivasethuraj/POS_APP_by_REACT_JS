@@ -1,5 +1,5 @@
 # **POS APP** by _React_
-> SECTIONS :
+> *SECTIONS :*
 - [About](#about)
 - [Docker](#docker)
 - [website screenshots](#screenshot-of-website)
