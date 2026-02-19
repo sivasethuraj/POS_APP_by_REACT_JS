@@ -21,7 +21,7 @@ pipeline {
         stage('Build') {
             steps {
                 sh '''
-                npm install --no-audit --no-fund
+                npm install
                 npm run build || true
                 '''
             }
