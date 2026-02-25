@@ -5,6 +5,7 @@
 - [website screenshots](#screenshot-of-website)
 - [ArgoCD](#screenshot-of-argocd-application-gitops-website)
 - [Monitoring](#monitoring)
+- [CI CD](#ci-cd)
 
 ## About :
 
@@ -157,4 +158,107 @@ echo "All Done..."
 > ![grafana dashboards](</images/grafana/Screenshot_7-2-2026_132255_a2e870ab7f40-10-244-4-37-3000.papa.r.killercoda.com.jpeg>)
 
 
-This repository is developed by [Siva Sethuraj](https://github.com/sivasethuraj)
+# **CI CD**
+## Jenkins:
+### *What is CI/CD and Jenkins?*
+
+- CI/CD stands for Continuous Integration and Continuous Delivery/Deployment, which are practices in software development aimed at automating and streamlining the process of building, testing, and deploying applications. These practices ensure faster and more reliable software delivery by integrating code changes frequently and automating the deployment process.
+
+- Jenkins is an open-source automation server widely used to implement CI/CD pipelines. It helps developers automate tasks such as building, testing, and deploying applications, making it a cornerstone of modern DevOps workflows.
+
+### Key Features of Jenkins in CI/CD
+
+- *Continuous Integration*: Automatically integrates code changes into a shared repository and runs tests to ensure the codebase remains stable.
+
+- *Continuous Delivery*: Automates the deployment of tested code to staging or production environments, ensuring it is always in a deployable state.
+
+- *Continuous Deployment*: Extends delivery by automatically deploying changes to production without manual intervention.
+
+- Jenkins achieves this through its pipeline-driven approach, where workflows are defined as code using a Jenkinsfile. This file can be written in either Declarative or Scripted syntax, allowing teams to customize their pipelines.
+
+How Jenkins Works in CI/CD
+
+- Source Code Integration: Jenkins integrates with version control systems like Git to detect code changes.
+
+- Automated Builds: When changes are committed, Jenkins triggers a build process using tools like Maven or Gradle.
+
+- Testing: Jenkins runs automated tests (unit, integration, performance) to ensure code quality.
+
+- Deployment: If tests pass, Jenkins deploys the application to staging or production environments using tools like Docker, Kubernetes, or cloud platforms.
+
+Here in my this repositry Jenkins pipeline will:
+---
+- Fetch the latest code from a Git repository.
+
+- Build the application and package it into a Docker container.
+
+- Run automated tests to validate functionality.
+
+- Deploy the container to a Kubernetes cluster.
+- Post pipeline stage notifies either pipeline failed or succeed
+
+![Jenkins Pipeline Diagram](</images/jenkins/diagram-pipeline.png>)
+
+### installation script:
+```sh
+#java
+sudo apt update
+sudo apt install fontconfig openjdk-21-jre -y
+java -version
+
+#jenkins
+sudo wget -O /etc/apt/keyrings/jenkins-keyring.asc \
+  https://pkg.jenkins.io/debian/jenkins.io-2026.key
+echo "deb [signed-by=/etc/apt/keyrings/jenkins-keyring.asc]" \
+  https://pkg.jenkins.io/debian binary/ | sudo tee \
+  /etc/apt/sources.list.d/jenkins.list > /dev/null
+sudo apt update -y
+sudo apt install jenkins -y
+
+#jenkins service
+sudo systemctl enable jenkins &&\
+sudo systemctl start jenkins && \
+sudo cat /var/lib/jenkins/secrets/initialAdminPassword > jenkins-password.txt
+echo "jenkins password saved on jenkins-password.txt file"
+
+#post actions to attach necessary permissions
+sudo usermod -aG docker jenkins && sudo usermod -aG docker $USER
+```
+
+- After installed java and jenkins 
+  - Jenkins server runs on port 8080
+  - Configure security group for 8080 port
+  - Open your http://<public-ip>:8080
+  - InitialAdminPassword is stored in jenkins-password.txt file
+  - Setup user account
+  - Click manage jenkins > plug-in > search docker pipeline
+  - Install plug-in and restart jenkins
+  - Click credential > + > username & password > provide your Docker Hub username and for password field create secret token in Docker Hub
+  - Important step is provide a id field
+  - Because it must same in here and pipeline code
+  - Click + icon in jenkins home page create a job, provide name and description click pipeline
+  - Copy and paste the jenkins file in pipeline script
+  - Save and click build 
+  - Alternatively configure webhook in github
+
+  ## Screenshot of Jenkins CI / CD
+> ![jenkins](</images/jenkins/Screenshot_11-2-2026_194951_07a8db8967bb-10-244-7-51-8080.spch.r.killercoda.com.jpeg>)
+> ![jenkins](</images/jenkins/Screenshot_13-2-2026_145634_766f4ec50df1-10-244-5-170-8080.papa.r.killercoda.com.jpeg>)
+
+> ![jenkins](</images/jenkins/Screenshot_17-2-2026_75536_7db47c35c270-10-244-6-130-8080.papa.r.killercoda.com.jpeg>)
+
+> ![jenkins](</images/jenkins/Screenshot_17-2-2026_75554_7db47c35c270-10-244-6-130-8080.papa.r.killercoda.com.jpeg>)
+
+> ![jenkins](</images/jenkins/Screenshot_19-2-2026_2031_e78c3c6bb08b-10-244-4-29-8080.spch.r.killercoda.com.jpeg>)
+
+> ![jenkins](</images/jenkins/Screenshot_25-2-2026_83418_hub.docker.com.jpeg>)
+
+> ![jenkins](</images/jenkins/Screenshot_25-2-2026_83534_b9d7b4d43337-10-244-6-59-8080.papa.r.killercoda.com.jpeg>)
+
+> ![jenkins](</images/jenkins/Screenshot_25-2-2026_8359_hub.docker.com.jpeg>)
+
+> ![jenkins](</images/jenkins/Screenshot_25-2-2026_83616_b9d7b4d43337-10-244-6-59-8080.papa.r.killercoda.com.jpeg>)
+
+> ![jenkins](</images/jenkins/Screenshot_25-2-2026_83653_b9d7b4d43337-10-244-6-59-8080.papa.r.killercoda.com.jpeg>)
+
+> ![jenkins](</images/jenkins/Screenshot_25-2-2026_84012_killercoda.com.jpeg>)
